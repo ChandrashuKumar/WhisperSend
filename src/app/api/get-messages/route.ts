@@ -27,7 +27,7 @@ export async function GET(request: Request) {
 
     if (!user || user.length === 0) {
       return Response.json(
-        { message: 'You have no messages yet 😒', success: false },
+        { message: 'You have no messages yet 😔', success: false },
         { status: 404 }
       );
     }

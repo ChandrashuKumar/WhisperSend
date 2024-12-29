@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: text });
 
   } catch (error) {
-      console.error('An unexpected error occurred in ai:', error);
+      console.error('An unexpected error occurred in AI:', error);
       throw error;
   }
 }

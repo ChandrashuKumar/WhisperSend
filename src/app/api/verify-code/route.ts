@@ -16,7 +16,7 @@ export async function POST(request: Request){
                 success: false,
                 message: "user not found"
             },
-        {status: 500}) 
+        {status: 404}) 
         }
 
         const isCodeValid = user.verifyCode === code
@@ -33,14 +33,14 @@ export async function POST(request: Request){
         else if(!isCodeNotExpired){
             return Response.json({
                 success: false,
-                message: "verification code has expired. please signup again to get a new code"
+                message: "Verification code has expired. Please signup again to get a new code"
             },
-            {status: 400})
+            {status: 410})
         }
         else{
             return Response.json({
                 success: false,
-                message: "incorrect verification code"
+                message: "Incorrect verification code"
             },
             {status: 400})
         }

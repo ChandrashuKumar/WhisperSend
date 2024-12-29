@@ -40,7 +40,9 @@ function Navbar() {
         >
           {session ? (
             <>
-              <span className="text-sm text-muted-foreground">Welcome, {user.username || user.email}</span>
+              <span className="text-base font-semibold text-blue-950 dark:text-pink-600">Welcome, {user.username || user.email}</span>
+
+
               
               {pathname !== '/dashboard' ? (
                 <Link href="/dashboard" onClick={() => setMenuOpen(false)}>
