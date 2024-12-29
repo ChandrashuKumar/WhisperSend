@@ -1,6 +1,6 @@
 # Anonymous Messaging App
 
-An anonymous messaging app built with [Next.js](https://nextjs.org), featuring AI-generated messages, email verification, and a modern UI.
+WhisperSend - An anonymous messaging app built with [Next.js](https://nextjs.org), featuring AI-generated messages, email verification, and a modern UI.
 
 ## Features
 
@@ -91,6 +91,8 @@ The easiest way to deploy your Next.js app is through [Vercel](https://vercel.co
 Follow the [Next.js deployment guide](https://nextjs.org/docs/app/building-your-application/deploying) for detailed steps.
 
 ---
+
+Visit the live website hosted on Vercel: [WhisperSend](https://whispersend-chandrashu.vercel.app/).
 
 Feel free to contribute or raise issues on the [GitHub repository](https://github.com/yourusername/anonymous-messaging-app).
 
