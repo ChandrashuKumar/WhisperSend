@@ -136,7 +136,7 @@ function UserDashboard() {
 
   return (
     <div className="my-4 mx-4 md:mx-8 lg:mx-auto p-6 bg-background rounded w-full max-w-6xl">
-      <h1 className="text-5xl font-bold mb-8"><span className='text-primary'>{username}'s</span> Dashboard</h1>
+      <h1 className="text-5xl font-bold mb-8"><span className='text-primary'>{username}&apos;s</span> Dashboard</h1>
 
       <div className="mb-4">
         <h2 className="text-lg font-semibold ">Copy Your Unique Link</h2>{' '}

@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { useDebounceValue, useDebounceCallback } from 'usehooks-ts'
+import { useDebounceCallback } from 'usehooks-ts'
 import { useToast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
 import { signUpSchema } from "@/schemas/signUpSchema"
 import axios, { AxiosError } from "axios"
 import { ApiResponse } from "@/types/ApiResponse"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
@@ -20,7 +20,6 @@ function Page() {
   const [username, setUsername] = useState('')
   const [usernameMessage, setUsernameMessage] = useState('')
   const [isCheckingUsername, setIsCheckingUsername] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const debounced = useDebounceCallback(setUsername, 300)
   const { toast } = useToast()
   const router = useRouter()
@@ -55,7 +54,6 @@ function Page() {
   }, [username])
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
-    setIsSubmitting(true)
     try {
       const response = await axios.post<ApiResponse>('/api/sign-up', data)
       toast({
@@ -63,17 +61,15 @@ function Page() {
         description: response.data.message
       })
       router.replace(`/verify/${username}`)
-      setIsSubmitting(false)
     } catch (error) {
       console.error("error in signup of user", error);
       const axiosError = error as AxiosError<ApiResponse>
-      let errorMessage = axiosError.response?.data.message
+      const errorMessage = axiosError.response?.data.message
       toast({
         title: "signup failed",
         description: errorMessage,
         variant: 'destructive'
       })
-      setIsSubmitting(false)
     }
   }
   return (

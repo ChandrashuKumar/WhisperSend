@@ -1,6 +1,6 @@
 'use client'
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { verifySchema } from "@/schemas/verifySchema"
@@ -35,7 +35,7 @@ function Page() {
     } catch (error) {
       console.error("error in verification of user", error);
       const axiosError = error as AxiosError<ApiResponse>
-      let errorMessage = axiosError.response?.data.message
+      const errorMessage = axiosError.response?.data.message
       toast({
         title: "verification failed",
         description: errorMessage,
